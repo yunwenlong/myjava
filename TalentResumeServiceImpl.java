@@ -419,37 +419,6 @@ public class TalentResumeServiceImpl implements TalentResumeService {
 		return mark;
 	}
 	
-	
-	public static void main(String[] args) {
-		String mark = "";
-		List<String> list = new ArrayList<String>();
-		list.add("___分隔符___"+
-		"<br>一、采购模块"+
-		"<br>1、负责供应商体系的建立、开发；"+
-		"<br>2、负责供应商合同的审定；"+
-		"<br>3、负责关键零部件商务谈判；"+
-		"<br>4、负责组织零部件、机械、设备的采购及招标；"+
-		"<br>5、供应商二方审核的组织和实施；"+
-		"<br>6、新开发车型供应商开发进度的跟踪。"+
-		"<br>二、研发模块："+
-		"<br>1、车辆选型、新产品研发的策划和规划； "+
-		"<br>2、公司新产品研发的研发组织和实施； "+
-		"<br>3、负责集团研究院组建、项目管理的实施； "+
-		"<br>4、新产品的试制和检验试验、公告的申报组织； "+
-		"<br>5、新产品的试制、的组织和实施；"+ 
-		"<br>6、新年能源车辆推荐目录的组织和实施。");
-		list.add("AAAAABBBBB1");
-		list.add("SSSSSSSSSSS2");
-		for (String string : list) {
-			string = string.replaceAll("\\(", "");
-			string = string.replaceAll("\\)", "");
-			System.out.println("aa= "+string);
-			mark = mark.replaceFirst("___分隔符___" + string, "");
-		}
-		System.out.println("kkk =  "+mark);
-	}
-	
-	
 	/**
 	 * TODO 修改工作经历方法
 	 * 修改时计算原工作经历的工作天数与修改后工作经历的工作天数比较并计入基本信息
