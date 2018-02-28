@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunwenlong.dao.BlogInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.yunwenlong.model.BlogInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="reply_num" property="replyNum" jdbcType="INTEGER" />
+    <result column="browse_num" property="browseNum" jdbcType="INTEGER" />
+    <result column="classify_id" property="classifyId" jdbcType="VARCHAR" />
+    <result column="key_word" property="keyWord" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="VARCHAR" />
+    <result column="uptime" property="uptime" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yunwenlong.model.BlogInfo" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, reply_num, browse_num, classify_id, key_word, user_id, addtime, uptime
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from blog_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yunwenlong.model.BlogInfo" >
+    insert into blog_info (id, title, reply_num, 
+      browse_num, classify_id, key_word, 
+      user_id, addtime, uptime, 
+      content)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{replyNum,jdbcType=INTEGER}, 
+      #{browseNum,jdbcType=INTEGER}, #{classifyId,jdbcType=VARCHAR}, #{keyWord,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{addtime,jdbcType=VARCHAR}, #{uptime,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yunwenlong.model.BlogInfo" >
+    insert into blog_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="replyNum != null" >
+        reply_num,
+      </if>
+      <if test="browseNum != null" >
+        browse_num,
+      </if>
+      <if test="classifyId != null" >
+        classify_id,
+      </if>
+      <if test="keyWord != null" >
+        key_word,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="uptime != null" >
+        uptime,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="replyNum != null" >
+        #{replyNum,jdbcType=INTEGER},
+      </if>
+      <if test="browseNum != null" >
+        #{browseNum,jdbcType=INTEGER},
+      </if>
+      <if test="classifyId != null" >
+        #{classifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="keyWord != null" >
+        #{keyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="uptime != null" >
+        #{uptime,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yunwenlong.model.BlogInfo" >
+    update blog_info
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="replyNum != null" >
+        reply_num = #{replyNum,jdbcType=INTEGER},
+      </if>
+      <if test="browseNum != null" >
+        browse_num = #{browseNum,jdbcType=INTEGER},
+      </if>
+      <if test="classifyId != null" >
+        classify_id = #{classifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="keyWord != null" >
+        key_word = #{keyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="uptime != null" >
+        uptime = #{uptime,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yunwenlong.model.BlogInfo" >
+    update blog_info
+    set title = #{title,jdbcType=VARCHAR},
+      reply_num = #{replyNum,jdbcType=INTEGER},
+      browse_num = #{browseNum,jdbcType=INTEGER},
+      classify_id = #{classifyId,jdbcType=VARCHAR},
+      key_word = #{keyWord,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      addtime = #{addtime,jdbcType=VARCHAR},
+      uptime = #{uptime,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yunwenlong.model.BlogInfo" >
+    update blog_info
+    set title = #{title,jdbcType=VARCHAR},
+      reply_num = #{replyNum,jdbcType=INTEGER},
+      browse_num = #{browseNum,jdbcType=INTEGER},
+      classify_id = #{classifyId,jdbcType=VARCHAR},
+      key_word = #{keyWord,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      addtime = #{addtime,jdbcType=VARCHAR},
+      uptime = #{uptime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

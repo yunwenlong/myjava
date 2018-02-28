@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SpringBoot + Freemarker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+hello world<hr>
+${name}<hr>
+${age}<hr>
+this is test
+</body>
+</html>

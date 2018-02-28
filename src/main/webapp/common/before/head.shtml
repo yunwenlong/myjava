@@ -1,0 +1,11 @@
+<span class="bg_top"></span> 
+<span class="bg_bottom"></span>
+<div id="templatemo_menu">
+	<ul>
+		<li><a href="login.html">主页</a></li>
+		<li><a href="about.html">关于我们</a></li>
+		<li><a href="gallery.html">相册</a></li>
+		<li><a href="blog.html">博客</a></li>
+		<li class="last"><a href="contact.html" class="current">联系我们</a></li>
+	</ul>
+</div>
